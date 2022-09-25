@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Table from "./Table"
+import Form from "./Form"
 
 // const characters = [
 //     {
@@ -30,22 +31,22 @@ import Table from "./Table"
 
 function MyApp(){
     const [characters, setCharacters] = useState([
-        {
-            name: 'Charlie', 
-            job: 'Janitor'
-        },
-        {
-            name: 'Mac', 
-            job: 'Bouncer'
-        },
-        {
-            name: 'Dee', 
-            job: 'Aspiring Actress'
-        },
-        {
-            name: 'Mac', 
-            job: 'Bartender'
-        },
+        // {
+        //     name: 'Charlie', 
+        //     job: 'Janitor'
+        // },
+        // {
+        //     name: 'Mac', 
+        //     job: 'Bouncer'
+        // },
+        // {
+        //     name: 'Dee', 
+        //     job: 'Aspiring Actress'
+        // },
+        // {
+        //     name: 'Mac', 
+        //     job: 'Bartender'
+        // },
     ]);
 
     function removeOneCharacter (index){
@@ -55,9 +56,14 @@ function MyApp(){
         setCharacters(updated);
     }
 
+    function updateList(person){
+        setCharacters([...characters, person]);
+    }
+
     return (
         <div className="container">
           <Table characterData={characters} removeCharacter={removeOneCharacter} />
+          <Form handleSubmit={updateList}/>
         </div>
     )
 }
